@@ -5,8 +5,7 @@
 }
 
 .main {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .title {
   color: rgb(70, 70, 70);
@@ -23,8 +22,10 @@
 .input-number {
   background-color: lightgrey;
   border: none;
-  border-radius: 3px;
-  height: 20px;
+  border-radius: 5px;
+  color: rgb(49, 49, 49);
+  font-size: 13px;
+  padding: 5px;
   margin-bottom: 10px;
   display: block;
 }
@@ -33,7 +34,7 @@
   background-color: rgb(73, 188, 173);
   color: white;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
   font-size: 13px;
   padding: 5px 10px;
 }
@@ -41,5 +42,6 @@
 .paragraph {
   border: solid 3px lightgray;
   color: rgb(87, 87, 87);
+  font-size: 15px;
   padding: 5px;
 }

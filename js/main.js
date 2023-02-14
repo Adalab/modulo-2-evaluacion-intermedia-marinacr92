@@ -6,18 +6,21 @@ const clue = document.querySelector('.js-clue');
 const attemptCounter = document.querySelector('.js-attempt-counter');
 
 let counterNumber = 0;
-attemptCounter.innerHTML = `Número de intentos: ${counterNumber}`;
+const defaultAttempt = `Número de intentos: ${counterNumber}`;
+const defaultClue = 'Pista: Escribe el número y dale a Prueba';
 
-clue.innerHTML = 'Pista: Escribe el número y dale a Prueba';
+attemptCounter.innerHTML = defaultAttempt;
+clue.innerHTML = defaultClue;
 
-const randomNumber = getRandomNumber(100);
-
-console.log(randomNumber);
 
 function getRandomNumber(max) {
     const randomNumber = Math.ceil(Math.random() * max);
     return randomNumber;
 }
+
+const randomNumber = getRandomNumber(100);
+console.log('Número aleatorio: ' + randomNumber);
+
 
 function updateCounter(){
     counterNumber++;
@@ -26,6 +29,8 @@ function updateCounter(){
 
 function comparisonNumber(){
     const userNumber = parseInt(inputNumber.value);
+
+    console.log('Número recogido en el input: ' + userNumber);
 
     if (userNumber < 1 || userNumber > 100){
         clue.innerHTML = 'El número debe estar entre 1 y 100'
@@ -38,15 +43,12 @@ function comparisonNumber(){
     }
 }
 
-
 function handleClickBtn(event){
     event.preventDefault();
 
     updateCounter();
 
     comparisonNumber();
-
-
 }
 
 btn.addEventListener('click', handleClickBtn);
