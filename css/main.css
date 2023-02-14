@@ -1,0 +1,45 @@
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.title {
+  color: rgb(70, 70, 70);
+  font-size: 40px;
+}
+
+.input-label {
+  color: rgb(100, 98, 98);
+  font-size: 15px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.input-number {
+  background-color: lightgrey;
+  border: none;
+  border-radius: 3px;
+  height: 20px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.btn {
+  background-color: rgb(73, 188, 173);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 13px;
+  padding: 5px 10px;
+}
+
+.paragraph {
+  border: solid 3px lightgray;
+  color: rgb(87, 87, 87);
+  padding: 5px;
+}
