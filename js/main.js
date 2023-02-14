@@ -5,18 +5,19 @@ const btn = document.querySelector('.js-btn');
 const clue = document.querySelector('.js-clue');
 const attemptCounter = document.querySelector('.js-attempt-counter');
 
+let counterNumber = 0;
+attemptCounter.innerHTML = `Número de intentos: ${counterNumber}`;
+
+clue.innerHTML = 'Pista: Escribe el número y dale a Prueba';
+
+const randomNumber = getRandomNumber(100);
+
+console.log(randomNumber);
 
 function getRandomNumber(max) {
     const randomNumber = Math.ceil(Math.random() * max);
     return randomNumber;
 }
-const randomNumber = getRandomNumber(100);
-console.log(randomNumber);
-
-let counterNumber = 0;
-attemptCounter.innerHTML = `Número de intentos: ${counterNumber}`;
-
-clue.innerHTML = 'Pista: Escribe el número y dale a Prueba';
 
 function updateCounter(){
     counterNumber++;
@@ -25,15 +26,15 @@ function updateCounter(){
 
 function comparisonNumber(){
     const userNumber = parseInt(inputNumber.value);
-    if(userNumber > randomNumber){
+
+    if (userNumber < 1 || userNumber > 100){
+        clue.innerHTML = 'El número debe estar entre 1 y 100'
+    } else if(userNumber > randomNumber){
         clue.innerHTML = 'Demasiado alto';
-        console.log 
     } else if (userNumber < randomNumber){
        clue.innerHTML = 'Demasiado bajo' 
     } else if (userNumber === randomNumber){
         clue.innerHTML = 'Has ganado campeona!!!'
-    } else if (1<randomNumber<100){
-        clue.innerHTML = 'El número debe estar entre 1 y 100'
     }
 }
 
@@ -42,8 +43,6 @@ function handleClickBtn(event){
     event.preventDefault();
 
     updateCounter();
-
-    getRandomNumber(100);
 
     comparisonNumber();
 
