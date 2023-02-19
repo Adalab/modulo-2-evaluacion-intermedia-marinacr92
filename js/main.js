@@ -27,20 +27,26 @@ function updateCounter(){
     attemptCounter.innerHTML = `Número de intentos: ${counterNumber}`;
 }
 
+function writeMessage(msg){
+    clue.innerHTML = msg;
+}
+
 function comparisonNumber(){
     const userNumber = parseInt(inputNumber.value);
 
     console.log('Número recogido en el input: ' + userNumber);
 
-    if (userNumber < 1 || userNumber > 100){
-        clue.innerHTML = 'El número debe estar entre 1 y 100'
+    if(isNaN(userNumber)){
+        writeMessage('Debe escribir un número entre el 1 y el 100');
+    } else if (userNumber < 1 || userNumber > 100){
+        writeMessage('El número debe estar entre 1 y 100'); 
     } else if(userNumber > randomNumber){
-        clue.innerHTML = 'Demasiado alto';
+        writeMessage('Demasiado alto');
     } else if (userNumber < randomNumber){
-       clue.innerHTML = 'Demasiado bajo' 
+        writeMessage('Demasiado bajo');
     } else if (userNumber === randomNumber){
-        clue.innerHTML = 'Has ganado campeona!!!'
-    }
+        writeMessage('Has ganado campeona!!!'); 
+    }    
 }
 
 function handleClickBtn(event){
