@@ -10,9 +10,6 @@ let counterNumber = 0;
 const defaultAttempt = `Número de intentos: ${counterNumber}`;
 const defaultClue = 'Pista: Escribe el número y dale a Prueba';
 
-attemptCounter.innerHTML = defaultAttempt;
-clue.innerHTML = defaultClue;
-
 
 function getRandomNumber(max) {
     const randomNumber = Math.ceil(Math.random() * max);
@@ -25,11 +22,11 @@ console.log('Número aleatorio: ' + randomNumber);
 
 function updateCounter(){
     counterNumber++;
-    attemptCounter.innerHTML = `Número de intentos: ${counterNumber}`;
+    writeMessage(attemptCounter,`Número de intentos: ${counterNumber}`);
 }
 
-function writeMessage(msg){
-    clue.innerHTML = msg;
+function writeMessage(positionMsg,msg){
+    positionMsg.innerHTML = msg;
 }
 
 function comparisonNumber(){
@@ -38,38 +35,39 @@ function comparisonNumber(){
     console.log('Número recogido en el input: ' + userNumber);
 
     if(isNaN(userNumber)){
-        writeMessage('Debe escribir un número entre el 1 y el 100');
+        writeMessage(clue,'Debe escribir un número entre el 1 y el 100');
     } else if (userNumber < 1 || userNumber > 100){
-        writeMessage('El número debe estar entre 1 y 100'); 
+        writeMessage(clue,'El número debe estar entre 1 y 100'); 
     } else if(userNumber > randomNumber){
-        writeMessage('Demasiado alto');
+        writeMessage(clue,'Demasiado alto');
     } else if (userNumber < randomNumber){
-        writeMessage('Demasiado bajo');
+        writeMessage(clue,'Demasiado bajo');
     } else if (userNumber === randomNumber){
-        writeMessage('Has ganado campeona!!!'); 
+        writeMessage(clue,'Has ganado campeona!!!'); 
     }    
 }
 
 function handleClickBtn(event){
     event.preventDefault();
-
     updateCounter();
-
     comparisonNumber();
 }
 
 function resetCounter(){
     counterNumber = 0;
-    attemptCounter.innerHTML = `Número de intentos: ${counterNumber}`;
+    writeMessage(attemptCounter,`Número de intentos: ${counterNumber}`);
 }
 
 function handleClickReset(){
     inputNumber.value = "";
-    writeMessage(defaultClue);
+    writeMessage(clue,defaultClue);
     randomNumber = getRandomNumber(100);
     console.log('Número aleatorio: ' + randomNumber);
     resetCounter();   
 }
+
+writeMessage(attemptCounter,defaultAttempt);
+writeMessage(clue,defaultClue);
 
 btn.addEventListener('click', handleClickBtn);
 reset.addEventListener('click', handleClickReset);
