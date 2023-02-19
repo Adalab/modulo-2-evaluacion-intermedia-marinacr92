@@ -39,6 +39,15 @@
   padding: 5px 10px;
 }
 
+.btn-reset {
+  background-color: rgb(137, 138, 138);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+  padding: 5px 10px;
+}
+
 .paragraph {
   border: solid 3px lightgray;
   color: rgb(87, 87, 87);

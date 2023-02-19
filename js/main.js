@@ -2,6 +2,7 @@
 
 const inputNumber = document.querySelector('.js-input-number');
 const btn = document.querySelector('.js-btn');
+const reset = document.querySelector('.js-reset');
 const clue = document.querySelector('.js-clue');
 const attemptCounter = document.querySelector('.js-attempt-counter');
 
@@ -18,7 +19,7 @@ function getRandomNumber(max) {
     return randomNumber;
 }
 
-const randomNumber = getRandomNumber(100);
+let randomNumber = getRandomNumber(100);
 console.log('Número aleatorio: ' + randomNumber);
 
 
@@ -57,5 +58,19 @@ function handleClickBtn(event){
     comparisonNumber();
 }
 
+function resetCounter(){
+    counterNumber = 0;
+    attemptCounter.innerHTML = `Número de intentos: ${counterNumber}`;
+}
+
+function handleClickReset(){
+    inputNumber.value = "";
+    writeMessage(defaultClue);
+    randomNumber = getRandomNumber(100);
+    console.log('Número aleatorio: ' + randomNumber);
+    resetCounter();   
+}
+
 btn.addEventListener('click', handleClickBtn);
+reset.addEventListener('click', handleClickReset);
 
